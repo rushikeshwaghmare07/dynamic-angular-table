@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { IProduct } from '../../services/product.mode';
+import { CommonModule } from '@angular/common';
+import { TableComponent } from '../../shared/table/table.component';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, TableComponent],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'
 })
