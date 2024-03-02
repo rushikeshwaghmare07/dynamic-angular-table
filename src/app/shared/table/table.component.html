@@ -1,12 +1,16 @@
 @if (search) {
-    <div class="mb-3 row">
-        <label for="" class="col-xs-3 col-sm-auto col-form-label">Search</label>
-        <div class="col-xs-3 col-sm-auto">
-            <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="refreshTable()">
-        </div>
-    </div>
+<div class="mb-3 row">
+  <label for="" class="col-xs-3 col-sm-auto col-form-label">Search</label>
+  <div class="col-xs-3 col-sm-auto">
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="searchTerm"
+      (keyup)="refreshTable()"
+    />
+  </div>
+</div>
 }
-
 
 <table class="table table-bordered">
   <thead>
@@ -29,8 +33,9 @@
 <nav aria-label="Page navigation example">
   <ul class="pagination">
     @for (item of [].constructor(paginationStatus.totalPages); track $index) {
-    <li class="page-item" [class]="{'active': paginationStatus.page === ($index + 1)}"><a class="page-link" 
-        (click)="pageChange($index + 1)" href="#">{{$index + 1}}</a></li>
+    <li class="page-item" [class]="{ active: paginationStatus.page === $index + 1 }">
+        <a class="page-link" (click)="pageChange($index + 1)" href="#">{{ $index + 1 }}</a>
+    </li>
     }
   </ul>
 </nav>
