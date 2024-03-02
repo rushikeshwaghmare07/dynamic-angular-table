@@ -6,7 +6,7 @@
     ></ng-container>
   </thead>
   <tbody>
-    @for (item of data; track $index) {
+    @for (item of tableData; track $index) {
     <ng-container
       [ngTemplateOutlet]="tableBody"
       [ngTemplateOutletContext]="{ $implicit: item }"
@@ -18,9 +18,10 @@
 @if (pagination) {
 <nav aria-label="Page navigation example">
   <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    @for (item of [].constructor(paginationStatus.totalPages); track $index) {
+    <li class="page-item" [class]="{'active': paginationStatus.page === ($index + 1)}"><a class="page-link" 
+        (click)="pageChange($index + 1)" href="#">{{$index + 1}}</a></li>
+    }
   </ul>
 </nav>
 }
