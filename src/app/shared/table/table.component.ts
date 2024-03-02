@@ -47,6 +47,8 @@ export class TableComponent implements OnChanges {
   refreshTable() {
     let data = this.data;
 
+    this.paginationStatus.totalPages = Math.ceil(this.totalRecords / this.paginationStatus.pageSize);
+
     this.tableData = data.slice(
       (this.paginationStatus.page - 1) * this.paginationStatus.pageSize,
       (this.paginationStatus.page - 1) * this.paginationStatus.pageSize +
