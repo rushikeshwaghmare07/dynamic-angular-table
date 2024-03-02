@@ -1,3 +1,13 @@
+@if (search) {
+    <div class="mb-3 row">
+        <label for="" class="col-xs-3 col-sm-auto col-form-label">Search</label>
+        <div class="col-xs-3 col-sm-auto">
+            <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="refreshTable()">
+        </div>
+    </div>
+}
+
+
 <table class="table table-bordered">
   <thead>
     <ng-container
