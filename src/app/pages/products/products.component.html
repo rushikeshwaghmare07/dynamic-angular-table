@@ -6,7 +6,9 @@
         [tableHead]="theadTemplate"
         [tableBody]="tbodyTemplate"
         [pageSize]="20"
+        [filterColumn]="['title']"
         [pagination]="true"
+        [search]="true"
         [data]="products"
       >
         <ng-template #theadTemplate>
